@@ -8,8 +8,276 @@
   <!-- Fonte Roboto -->
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
 
-  <!-- CSS externo -->
-  <link rel="stylesheet" href="styles.css">
+  <!-- CSS interno -->
+  <style>
+    /* ===========================
+   Reset e base
+=========================== */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Roboto", Arial, sans-serif;
+  color: #202124;
+  background: #fff;
+  margin: 0;
+  -webkit-font-smoothing: antialiased;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* ===========================
+   Topbar
+=========================== */
+.topbar {
+  height: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 20px;
+  border-bottom: 1px solid #e8eaed;
+  background: #fff;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.logo {
+  width: 36px;
+  height: 36px;
+  border-radius: 6px;
+  background: linear-gradient(135deg, #1a73e8, #00a1ff);
+  color: #fff;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.subtitle {
+  font-size: 12px;
+  color: #5f6368;
+}
+
+.nav-right {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+.btn {
+  padding: 8px 12px;
+  border-radius: 8px;
+  border: 1px solid transparent;
+  background: transparent;
+  cursor: pointer;
+  font-size: 14px;
+  transition: 0.2s;
+}
+
+.btn.primary {
+  background: #1a73e8;
+  color: #fff;
+}
+
+.btn.primary:hover {
+  background: #1669c1;
+}
+
+.btn.secondary {
+  border: 1px solid #e8eaed;
+  color: #202124;
+}
+
+.btn.secondary:hover {
+  background: #f1f3f4;
+}
+
+.avatar {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: #e8eaed;
+}
+
+/* ===========================
+   Hero
+=========================== */
+.hero {
+  max-width: 1100px;
+  margin: 36px auto;
+  padding: 0 24px;
+}
+
+.hero-card {
+  background: #fff;
+  border: 1px solid #e8eaed;
+  border-radius: 12px;
+  padding: 32px;
+  box-shadow: 0 6px 20px rgba(60, 64, 67, 0.08);
+}
+
+.hero-header {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.hero-title {
+  margin: 0;
+  font-size: 20px;
+  font-weight: 500;
+}
+
+.hero-sub {
+  margin: 6px 0 0;
+  color: #5f6368;
+  font-size: 14px;
+}
+
+.hero-meta {
+  text-align: right;
+}
+
+.chip {
+  background: #fff;
+  border: 1px solid #e8eaed;
+  border-radius: 20px;
+  padding: 6px 10px;
+  font-size: 13px;
+}
+
+.update {
+  display: block;
+  font-size: 12px;
+  color: #5f6368;
+  margin-top: 6px;
+}
+
+.search-surface {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  border: 1px solid #e8eaed;
+  border-radius: 24px;
+  background: #f8f9fa;
+  padding: 10px 14px;
+  margin-top: 16px;
+}
+
+.search-surface input {
+  border: none;
+  outline: none;
+  background: transparent;
+  font-size: 15px;
+  flex: 1;
+}
+
+.stats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 14px;
+  font-size: 13px;
+  color: #3c4043;
+}
+
+/* ===========================
+   Grid principal
+=========================== */
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 320px;
+  gap: 20px;
+  margin-top: 18px;
+}
+
+.card {
+  background: #fff;
+  border: 1px solid #e8eaed;
+  border-radius: 10px;
+  padding: 18px;
+  box-shadow: 0 4px 14px rgba(60, 64, 67, 0.05);
+}
+
+h2 {
+  font-size: 16px;
+  font-weight: 500;
+  margin: 12px 0;
+}
+
+.small {
+  color: #5f6368;
+  font-size: 14px;
+}
+
+ol, ul {
+  margin-left: 18px;
+}
+
+.controls {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.control {
+  border: 1px solid #e8eaed;
+  border-radius: 8px;
+  background: #fff;
+  padding: 10px;
+  font-size: 14px;
+}
+
+.buttons {
+  margin-top: 14px;
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.sitefoot {
+  text-align: center;
+  color: #70757a;
+  font-size: 13px;
+  margin: 26px 0;
+}
+
+/* ===========================
+   Responsivo
+=========================== */
+@media (max-width: 980px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+
+  .controls {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-header {
+    flex-direction: column;
+    text-align: left;
+  }
+
+  .hero-meta {
+    text-align: left;
+  }
+}
+
+  </style>
 </head>
 <body>
 
